@@ -8,8 +8,8 @@ export default defineConfig({
     vue(),
     viteMockServe({
       mockPath: 'mock',      // mock 文件夹
-      // localEnabled: true,    // 开发环境启用
-      localEnabled: false,    // 开发环境启用
+      localEnabled: true,    // 开发环境启用
+      // localEnabled: false,    // 开发环境启用
     }),
   ],
   server: {
