@@ -89,7 +89,7 @@ const form = ref({
 // 加载数据
 const loadData = async () => {
   const res = await fetchStockReservations()
-  list.value = res.data
+  list.value = res.data.slice(0, 100)
 
   if (searchId.value) {
     list.value = list.value.filter(item => String(item.id).includes(searchId.value))

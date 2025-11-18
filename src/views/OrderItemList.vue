@@ -80,7 +80,9 @@ const filteredItems = computed(() =>
 
 onMounted(async () => {
   const res = await fetchOrderItemsAll()
-  items.value = res.data
+  // items.value = res.data
+  items.value = res.data.slice(0, 100)
+
 
   // 如果从订单列表跳转而来，自动筛选订单项
   if (route.query.orderId) {
@@ -128,7 +130,9 @@ const onSave = async () => {
     ElMessage.success("创建成功")
   }
   const res = await fetchOrderItemsAll()
-  items.value = res.data
+  // items.value = res.data
+  items.value = res.data.slice(0, 100)
+
   dialogVisible.value = false
 }
 

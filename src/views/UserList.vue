@@ -71,7 +71,7 @@ const searchText = ref('')
 
 async function load() {
   const res = await fetchUsers()
-  fullList = res.data
+  fullList = res.data.slice(0, 100)
   list.value = res.data
 }
 

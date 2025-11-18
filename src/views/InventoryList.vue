@@ -69,15 +69,30 @@ const form = ref({
 })
 
 // 加载全部库存
+// const loadData = async () => {
+//   const res = await fetchInventoryList()
+//   inventory.value = res.data
+
+//   // 搜索过滤
+//   if (searchId.value) {
+//     inventory.value = inventory.value.filter(i => String(i.productId).includes(searchId.value))
+//   }
+// }
+// 加载100库存
 const loadData = async () => {
   const res = await fetchInventoryList()
-  inventory.value = res.data
+  
+  // 搜索之前先取前100条
+  let list = res.data.slice(0, 100)
 
   // 搜索过滤
   if (searchId.value) {
-    inventory.value = inventory.value.filter(i => String(i.productId).includes(searchId.value))
+    list = list.filter(i => String(i.productId).includes(searchId.value))
   }
+
+  inventory.value = list
 }
+
 
 // 重置搜索
 const resetSearch = () => {

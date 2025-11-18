@@ -112,7 +112,7 @@ const searchKey = ref('')  // 搜索实际使用的关键词
 
 const load = async () => {
   const res = await fetchProducts()
-  list.value = res.data
+  list.value = res.data.slice(0, 100)
 }
 
 onMounted(load)

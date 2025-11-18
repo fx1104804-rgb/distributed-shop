@@ -126,7 +126,8 @@ const filteredOrders = computed(() => {
 
 onMounted(async () => {
   const res = await fetchOrders()
-  orders.value = res.data
+  orders.value = res.data.slice(0, 100)
+
 })
 
 const onSearch = () => {}
@@ -180,7 +181,7 @@ const onSave = async () => {
   }
 
   const res = await fetchOrders()
-  orders.value = res.data
+  orders.value = res.data.slice(0, 100)
 
   editDialogVisible.value = false
 }
@@ -203,7 +204,7 @@ const onDelete = async (id) => {
     ElMessage.success("删除成功")
 
     const res = await fetchOrders()
-    orders.value = res.data
+    orders.value = res.data.slice(0, 100)
 
   } catch (err) {
     // 点击取消会触发
@@ -217,7 +218,7 @@ const pay = async (id) => {
   await payOrder(id)
   ElMessage.success("支付成功")
   const res = await fetchOrders()
-  orders.value = res.data
+  orders.value = res.data.slice(0, 100)
 }
 
 // 取消
@@ -225,6 +226,6 @@ const cancel = async (id) => {
   await cancelOrder(id)
   ElMessage.success("订单已取消")
   const res = await fetchOrders()
-  orders.value = res.data
+  orders.value = res.data.slice(0, 100)
 }
 </script>
