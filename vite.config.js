@@ -19,23 +19,24 @@
 // vite.config.js
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import { viteMockServe } from 'vite-plugin-mock'
+// import { viteMockServe } from 'vite-plugin-mock'   // 直接注释掉
 
 export default defineConfig({
   plugins: [
     vue(),
-    viteMockServe({
-      mockPath: 'mock',
-      localEnabled: false,   // mock 必须关掉
-    }),
+    // mock 已关闭（彻底禁用）
+    // viteMockServe({
+    //   mockPath: 'mock',
+    //   localEnabled: false,
+    // }),
   ],
   server: {
     port: 5173,
     proxy: {
       '/api': {
-        target: 'http://localhost:8082', // 后端地址
+        target: 'http://localhost:8082',
         changeOrigin: true,
       }
     }
-  },
+  }
 })
