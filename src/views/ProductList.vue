@@ -26,7 +26,7 @@
         <el-table-column prop="name" label="商品名称" />
         <el-table-column prop="price" label="单价" width="120" />
         <el-table-column prop="description" label="描述" />
-        <el-table-column prop="created_at" label="创建时间" width="160" />
+        <el-table-column prop="createdAt" label="创建时间" width="160" />
 
         <el-table-column label="操作" width="180">
           <template #default="{ row }">

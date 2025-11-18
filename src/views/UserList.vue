@@ -22,7 +22,7 @@
       <el-table-column prop="username" label="用户名" />
       <el-table-column label="注册时间" width="180">
         <template #default="scope">
-          {{ formatTime(scope.row.created_at) }}
+          {{ formatTime(scope.row.createdAt) }}
         </template>
       </el-table-column>
 
